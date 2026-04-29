@@ -1,0 +1,298 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { product } from "../data/product";
+import { company } from "../data/company";
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description={`How ${product.name} handles information — version ${product.legalDocsVersion.privacy}.`}
+>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-20">
+    <header>
+      <p class="text-sm font-semibold text-indigo-700 uppercase tracking-wide">Legal</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900">Privacy Policy</h1>
+      <p class="mt-2 text-sm text-slate-500">
+        {product.name} · Version {product.legalDocsVersion.privacy} · Last updated:{" "}
+        {product.legalDocsVersion.lastUpdated}
+      </p>
+      <div class="mt-5 rounded-lg border border-indigo-200 bg-indigo-50/40 p-4 text-slate-700 leading-relaxed">
+        <strong class="text-slate-900">Summary.</strong>
+        {product.name} stores core study data on your device using SQLite and MMKV, uses Firebase
+        Analytics for pseudonymous usage analytics and Firebase Crashlytics for crash diagnostics,
+        and uses RevenueCat to validate subscription status. We do not ask you to create an account
+        and we do not directly collect your name, email address, or phone number inside the App.
+      </div>
+    </header>
+
+    <nav aria-label="Table of contents" class="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-5">
+      <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Contents</h2>
+      <ul class="mt-3 grid gap-1 text-sm text-indigo-700">
+        <li><a class="hover:underline" href="#scope">1. Scope of This Policy</a></li>
+        <li><a class="hover:underline" href="#collect">2. Information We Collect</a></li>
+        <li><a class="hover:underline" href="#use">3. How We Use Information</a></li>
+        <li><a class="hover:underline" href="#share">4. How Information Is Shared</a></li>
+        <li><a class="hover:underline" href="#retention">5. Data Retention and Deletion</a></li>
+        <li><a class="hover:underline" href="#rights">6. Your Rights and Choices</a></li>
+        <li><a class="hover:underline" href="#children">7. Children's Privacy</a></li>
+        <li><a class="hover:underline" href="#security">8. Security</a></li>
+        <li><a class="hover:underline" href="#changes">9. Changes to This Policy</a></li>
+        <li><a class="hover:underline" href="#contact">10. Contact Information</a></li>
+      </ul>
+    </nav>
+
+    <div class="mt-10 space-y-10 text-slate-700 leading-relaxed">
+      <section id="scope">
+        <h2 class="text-2xl font-semibold text-slate-900">1. Scope of This Policy</h2>
+        <p class="mt-3">
+          This Privacy Policy explains how {product.name} (the "App," "we," "us," or "our") handles
+          information when you use the App. It covers data stored locally on your device and data
+          processed by the third-party services we use to operate analytics, crash diagnostics,
+          content delivery, and subscriptions.
+        </p>
+      </section>
+
+      <section id="collect">
+        <h2 class="text-2xl font-semibold text-slate-900">2. Information We Collect</h2>
+        <p class="mt-3">We collect or process the following categories of information:</p>
+        <div class="mt-4 overflow-hidden rounded-lg border border-slate-200">
+          <table class="w-full text-sm">
+            <thead class="bg-slate-50">
+              <tr>
+                <th class="text-left font-semibold text-slate-700 px-4 py-3 align-top">Category</th>
+                <th class="text-left font-semibold text-slate-700 px-4 py-3 align-top">What it includes</th>
+                <th class="text-left font-semibold text-slate-700 px-4 py-3 align-top">Where it is stored</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="px-4 py-3 align-top font-medium text-slate-900">Local study and app data</td>
+                <td class="px-4 py-3 align-top">
+                  Learning progress, answered questions, review history, downloaded state selection,
+                  onboarding status, language choices, subscription consent versions, and user
+                  preferences.
+                </td>
+                <td class="px-4 py-3 align-top">On your device using SQLite and MMKV</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 align-top font-medium text-slate-900">Analytics data</td>
+                <td class="px-4 py-3 align-top">
+                  Device and app information such as device model, operating system, locale, app
+                  opens, screen views, feature usage, and app event activity collected through
+                  Firebase Analytics.
+                </td>
+                <td class="px-4 py-3 align-top">Processed by Firebase Analytics</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 align-top font-medium text-slate-900">Crash diagnostics</td>
+                <td class="px-4 py-3 align-top">
+                  Crash stack traces and device context collected through Firebase Crashlytics when
+                  the App crashes, including two custom attributes: state code and content mode.
+                </td>
+                <td class="px-4 py-3 align-top">Processed by Firebase Crashlytics</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 align-top font-medium text-slate-900">Subscription data</td>
+                <td class="px-4 py-3 align-top">
+                  Subscription status, entitlement access, storefront or platform, transaction
+                  status, and an app user identifier used to validate purchases via RevenueCat.
+                </td>
+                <td class="px-4 py-3 align-top">Processed by RevenueCat and the applicable app marketplace</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 align-top font-medium text-slate-900">Content download logs</td>
+                <td class="px-4 py-3 align-top">
+                  Standard HTTP request information (IP address, timestamp, requested file)
+                  generated when the App downloads lesson content, images, or these legal
+                  documents from our content delivery network. Not linked to any in-app
+                  identifier.
+                </td>
+                <td class="px-4 py-3 align-top">Processed by Cloudflare R2 (CDN)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="mt-6 text-lg font-semibold text-slate-900">
+          Information We Do Not Intentionally Collect Directly
+        </h3>
+        <p class="mt-3">
+          The App does not require you to create an account, and we do not directly ask you to
+          provide your name, email address, home address, phone number, or similar personal profile
+          information inside the App.
+        </p>
+        <p class="mt-3">
+          Third-party service providers may receive technical identifiers or transaction-related
+          data as part of their services. Those providers process data under their own agreements
+          and policies.
+        </p>
+      </section>
+
+      <section id="use">
+        <h2 class="text-2xl font-semibold text-slate-900">3. How We Use Information</h2>
+        <p class="mt-3">We use the information described above to:</p>
+        <ul class="mt-3 list-disc pl-6 space-y-1">
+          <li>save your study progress, quiz history, settings, and language selections on your device;</li>
+          <li>measure app usage, feature adoption, and product stability through Firebase Analytics;</li>
+          <li>diagnose crashes and improve reliability through Firebase Crashlytics;</li>
+          <li>verify subscription status and unlock paid features through RevenueCat;</li>
+          <li>deliver lesson content and images to your device through our content delivery network;</li>
+          <li>maintain legal consent records, such as the accepted Terms and Privacy Policy versions;</li>
+          <li>improve the App, diagnose issues, and prioritize product updates.</li>
+        </ul>
+      </section>
+
+      <section id="share">
+        <h2 class="text-2xl font-semibold text-slate-900">4. How Information Is Shared</h2>
+        <p class="mt-3">
+          We do not sell your personal information and we do not share personal information with
+          third parties for cross-context behavioral advertising.
+        </p>
+        <p class="mt-3">
+          We share limited information only as needed with service providers that help operate the
+          App:
+        </p>
+        <ul class="mt-3 list-disc pl-6 space-y-1">
+          <li><strong>Firebase Analytics</strong> for pseudonymous analytics and app measurement;</li>
+          <li><strong>Firebase Crashlytics</strong> for crash diagnostics;</li>
+          <li><strong>RevenueCat</strong> for subscription entitlement validation and purchase status;</li>
+          <li>
+            <strong>Cloudflare R2</strong> for content delivery (lessons, images, and legal
+            documents); request logs include standard HTTP fields such as IP address;
+          </li>
+          <li>
+            <strong>Apple App Store / Google Play</strong> to process in-app purchases and
+            subscriptions.
+          </li>
+        </ul>
+        <div class="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+          Most core study records remain local to your device unless a third-party service receives
+          data that is necessary for analytics, crash diagnostics, content delivery, or
+          subscription processing.
+        </div>
+      </section>
+
+      <section id="retention">
+        <h2 class="text-2xl font-semibold text-slate-900">5. Data Retention and Deletion</h2>
+        <p class="mt-3">
+          Local study data remains on your device until you clear the App's data, reset your device
+          storage, or uninstall the App. If you remove the App, local SQLite and MMKV data stored
+          by the App is generally deleted from the device.
+        </p>
+        <p class="mt-3">
+          Firebase Analytics, Firebase Crashlytics, RevenueCat, and Cloudflare may retain data
+          according to their own retention policies and operational needs. We do not control those
+          external retention periods directly.
+        </p>
+      </section>
+
+      <section id="rights">
+        <h2 class="text-2xl font-semibold text-slate-900">6. Your Rights and Choices</h2>
+
+        <h3 class="mt-4 text-lg font-semibold text-slate-900">General Choices</h3>
+        <ul class="mt-3 list-disc pl-6 space-y-1">
+          <li>You can stop using the App at any time.</li>
+          <li>
+            You can remove local App data by uninstalling the App or clearing device storage for
+            the App.
+          </li>
+          <li>You can manage subscriptions through your Apple or Google Play account settings.</li>
+        </ul>
+
+        <h3 class="mt-6 text-lg font-semibold text-slate-900">EEA, UK, and Similar Privacy Rights</h3>
+        <p class="mt-3">
+          If local law applies, you may have rights to request access to, correction of, deletion
+          of, or portability of personal data processed about you, and to object to or restrict
+          certain processing. Because most learning data is stored only on your device, deletion is
+          typically achieved by removing the App or clearing its local data.
+        </p>
+        <p class="mt-3">
+          For users in the European Economic Area, United Kingdom, and similar jurisdictions, this
+          section is intended to support rights commonly associated with the General Data
+          Protection Regulation (GDPR) and comparable privacy laws.
+        </p>
+
+        <h3 class="mt-6 text-lg font-semibold text-slate-900">California Privacy Notice</h3>
+        <p class="mt-3">
+          California users may have rights to know, access, delete, and correct personal
+          information, subject to legal exceptions. We do not sell personal information and do not
+          share personal information for cross-context behavioral advertising as part of the App's
+          current MVP design.
+        </p>
+        <p class="mt-3">
+          This California notice is intended to address rights commonly associated with the
+          California Consumer Privacy Act and California Privacy Rights Act (CCPA/CPRA).
+        </p>
+
+        <p class="mt-3">
+          For privacy requests or questions about third-party data handling, contact us using the
+          email address below. If your request involves Firebase, RevenueCat, or Cloudflare data,
+          we may need to direct you to the relevant provider or ask for additional details so we
+          can understand the request.
+        </p>
+      </section>
+
+      <section id="children">
+        <h2 class="text-2xl font-semibold text-slate-900">7. Children's Privacy</h2>
+        <p class="mt-3">
+          The App is designed for learner drivers and is not intended for children under 13. We do
+          not knowingly collect personal information directly from children under 13. If you are
+          under 13, please use the App only with a parent or legal guardian's permission and
+          supervision.
+        </p>
+        <p class="mt-3">
+          We intend this approach to align with the Children's Online Privacy Protection Act
+          (COPPA) by avoiding direct collection of child-directed account information inside the
+          App.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2 class="text-2xl font-semibold text-slate-900">8. Security</h2>
+        <p class="mt-3">
+          We use reasonable measures appropriate to the App's architecture to protect data handled
+          by the App and our service providers. However, no app, device, transmission method, or
+          storage system can be guaranteed to be completely secure.
+        </p>
+      </section>
+
+      <section id="changes">
+        <h2 class="text-2xl font-semibold text-slate-900">9. Changes to This Policy</h2>
+        <p class="mt-3">
+          We may update this Privacy Policy from time to time. When we do, we will revise the
+          version number and "Last updated" date on this page. Material updates may also trigger a
+          renewed consent flow inside the App.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2 class="text-2xl font-semibold text-slate-900">10. Contact Information</h2>
+        <p class="mt-3">
+          If you have privacy questions or requests, contact us at{" "}
+          <a class="text-indigo-700 underline" href={`mailto:${product.emails.privacy}`}>
+            {product.emails.privacy}
+          </a>.
+        </p>
+        <div class="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-5 text-sm">
+          <p class="font-semibold text-slate-900">Operator</p>
+          <address class="not-italic mt-2 text-slate-700 leading-6">
+            {company.legalName}<br />
+            {company.address.line1}<br />
+            {company.address.cityStateZip}<br />
+            {company.address.country}
+          </address>
+          <p class="mt-3 text-slate-600">
+            Illinois Limited Liability Company · IL File Number {company.ilFileNumber}
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="mt-12 pt-6 border-t border-slate-200 text-sm text-slate-500">
+      <p>
+        {product.name} Privacy Policy · Version {product.legalDocsVersion.privacy}
+      </p>
+      <p>Last updated: {product.legalDocsVersion.lastUpdated}</p>
+    </footer>
+  </article>
+</BaseLayout>

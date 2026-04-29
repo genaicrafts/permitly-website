@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { product } from "../data/product";
+
+const faqs = [
+  {
+    q: "How do I cancel my subscription?",
+    a: "Subscriptions are billed by the platform store, so cancellation happens there too. On iOS: open Settings → tap your name → Subscriptions → Permitly → Cancel Subscription. On Android: open Google Play → tap your profile → Payments &amp; subscriptions → Subscriptions → Permitly → Cancel. Cancellation takes effect at the end of the current billing period.",
+  },
+  {
+    q: "Does my progress sync across devices?",
+    a: "Not in the launch version. Permitly is local-first by design — your study history, quiz results, and preferences are stored only on the device you're using. Optional cloud sync is on the roadmap for a future release.",
+  },
+  {
+    q: "How do I switch state or language?",
+    a: "Open Settings inside the app. You can change your study state and language at any time. Your progress for previous states stays saved on the device.",
+  },
+  {
+    q: "How do I delete all my data?",
+    a: "Uninstall the app. Because Permitly stores nothing on a server, removing the app from your device removes every piece of data we hold about your usage. There's no separate account to close.",
+  },
+  {
+    q: "Do I need an internet connection to use Permitly?",
+    a: "Only briefly. The first time you choose a state, the app downloads that state's content (~0.6 MB). After that, you can study fully offline. Subscription verification happens in the background when you're online — it doesn't block study features once unlocked.",
+  },
+  {
+    q: "Is Permitly affiliated with any state DMV?",
+    a: "No. Permitly is an independent study tool built by GEN AICRAFTS LLC. It is not endorsed by, affiliated with, or operated by any state Department of Motor Vehicles. Always confirm requirements with your official state DMV.",
+  },
+  {
+    q: "My state isn't supported yet — what now?",
+    a: `Permitly launches with ${product.states.map((s) => s.name).join(", ")}. We're prioritizing additional states by request volume. Email ${product.emails.support} with your state name and we'll add your vote.`,
+  },
+  {
+    q: "I'm having a technical issue — where do I report it?",
+    a: `Email ${product.emails.support} with your device model, OS version, and a brief description of what happened. Screenshots help. We respond within 2 business days.`,
+  },
+];
+---
+
+<BaseLayout
+  title="Support"
+  description={`Help and FAQ for ${product.name}. Replies within 2 business days.`}
+>
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-8">
+    <h1 class="text-4xl font-bold tracking-tight text-slate-900">Support &amp; FAQ</h1>
+    <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+      Most questions are answered below. Still stuck? Email{" "}
+      <a class="text-indigo-700 underline" href={`mailto:${product.emails.support}`}>
+        {product.emails.support}
+      </a>{" "}
+      — we reply within 2 business days.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 pb-12">
+    <div class="divide-y divide-slate-200 border-t border-slate-200">
+      {
+        faqs.map((f) => (
+          <details class="group py-5">
+            <summary class="cursor-pointer list-none flex items-start justify-between gap-4 text-base font-medium text-slate-900 hover:text-indigo-700">
+              <span>{f.q}</span>
+              <span
+                class="mt-1 shrink-0 text-slate-400 transition-transform group-open:rotate-45 text-xl leading-none"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <div class="mt-3 text-slate-600 leading-relaxed" set:html={f.a} />
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 pb-20">
+    <div class="rounded-lg border border-slate-200 bg-slate-50 p-6 text-center">
+      <p class="text-slate-700">Still haven't found what you need?</p>
+      <a
+        href={`mailto:${product.emails.support}`}
+        class="mt-4 inline-flex items-center rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-500 transition-colors"
+      >
+        Email {product.emails.support}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

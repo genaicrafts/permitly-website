@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { product } from "../data/product";
+
+const highlights = [
+  {
+    title: "Real DMV question style",
+    body: "Practice with questions modeled on official state exam formats — not generic flashcards.",
+  },
+  {
+    title: "Seven languages",
+    body: "Study in English, Spanish, Chinese, Korean, Vietnamese, Portuguese, or Russian. Many states let you take the test in these languages too.",
+  },
+  {
+    title: "Works offline",
+    body: "Download your state once (~0.6 MB), then study anywhere — no signal, no battery drain from streaming.",
+  },
+];
+---
+
+<BaseLayout title={product.name} description={product.description}>
+  <section class="mx-auto max-w-5xl px-6 pt-16 pb-12 md:pt-24 md:pb-16">
+    <span
+      class="inline-flex items-center rounded-full bg-amber-100 text-amber-800 px-3 py-1 text-xs font-medium"
+    >
+      {product.status}
+    </span>
+    <h1 class="mt-4 text-4xl md:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
+      {product.tagline}
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-slate-600 leading-relaxed">
+      {product.description}
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href={`mailto:${product.emails.hello}?subject=Notify%20me%20when%20Permitly%20launches`}
+        class="inline-flex items-center rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-500 transition-colors"
+        >Notify me at launch →</a
+      >
+      <a
+        href="/features"
+        class="inline-flex items-center rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+        >See features</a
+      >
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 pb-12">
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        highlights.map((h) => (
+          <div class="rounded-lg border border-slate-200 bg-white p-6">
+            <h2 class="text-base font-semibold text-slate-900">{h.title}</h2>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{h.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 pb-16 md:pb-20">
+    <div
+      class="rounded-2xl border border-slate-200 bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-8 md:p-12"
+    >
+      <div class="grid gap-8 md:grid-cols-2 items-center">
+        <div>
+          <p class="text-sm font-medium text-indigo-700 uppercase tracking-wide">Launching with</p>
+          <p class="mt-3 text-2xl font-semibold text-slate-900">
+            {product.states.map((s) => s.name).join(", ")}
+          </p>
+          <p class="mt-2 text-slate-600 leading-relaxed">
+            Question banks aligned to each state's official mock exam length —{" "}
+            {product.states.map((s, i) => (
+              <span>
+                {s.name} ({s.questions} questions){i < product.states.length - 1 ? ", " : ""}
+              </span>
+            ))}.
+          </p>
+          <p class="mt-4 text-sm text-slate-500">
+            Don't see your state? Email us — we're prioritizing the next states by demand.
+          </p>
+        </div>
+        <div
+          class="aspect-[9/19] max-h-[420px] mx-auto w-full max-w-[210px] rounded-3xl border-2 border-slate-200 bg-white/70 flex items-center justify-center text-center text-slate-400 text-xs px-4"
+        >
+          App preview<br />coming soon
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { product } from "../data/product";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = product.description } = Astro.props;
+const pageTitle = title === product.name ? product.name : `${title} — ${product.name}`;
+const canonical = new URL(Astro.url.pathname, product.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={product.name} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="min-h-screen bg-white text-slate-800 antialiased flex flex-col">
+    <Header currentPath={Astro.url.pathname} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
