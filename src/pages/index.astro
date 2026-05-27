@@ -8,12 +8,12 @@ const highlights = [
     body: "Practice with questions modeled on official state exam formats — not generic flashcards.",
   },
   {
-    title: "Seven languages",
-    body: "Study in English, Spanish, Chinese, Korean, Vietnamese, Portuguese, or Russian. Many states let you take the test in these languages too.",
+    title: "Ten languages",
+    body: `Study in ${product.languages.join(", ")}. Many states let you take the written test in more than English.`,
   },
   {
     title: "Works offline",
-    body: "Download your state once (~0.6 MB), then study anywhere — no signal, no battery drain from streaming.",
+    body: "Download your state once, then study anywhere — no signal, no battery drain from streaming.",
   },
 ];
 ---
@@ -64,20 +64,16 @@ const highlights = [
     >
       <div class="grid gap-8 md:grid-cols-2 items-center">
         <div>
-          <p class="text-sm font-medium text-indigo-700 uppercase tracking-wide">Launching with</p>
+          <p class="text-sm font-medium text-indigo-700 uppercase tracking-wide">State coverage</p>
           <p class="mt-3 text-2xl font-semibold text-slate-900">
-            {product.states.map((s) => s.name).join(", ")}
+            {product.coverageLabel}
           </p>
           <p class="mt-2 text-slate-600 leading-relaxed">
-            Question banks aligned to each state's official mock exam length —{" "}
-            {product.states.map((s, i) => (
-              <span>
-                {s.name} ({s.questions} questions){i < product.states.length - 1 ? ", " : ""}
-              </span>
-            ))}.
+            Choose your state during setup and get practice organized around that jurisdiction's
+            permit-test format, handbook topics, passing score, and language options.
           </p>
           <p class="mt-4 text-sm text-slate-500">
-            Don't see your state? Email us — we're prioritizing the next states by demand.
+            Permitly is independent and is not affiliated with any state DMV.
           </p>
         </div>
         <div

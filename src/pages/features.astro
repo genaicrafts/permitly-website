@@ -18,7 +18,7 @@ const groups = [
     eyebrow: "Practice",
     heading: "Drill the way you'll actually be tested",
     items: [
-      "3 full mock exams per state, sized to match the real test (CA 46, IL 35, TX 30 questions)",
+      "Full mock exams, road sign quizzes, module tests, and topic-based practice",
       "Wrong Answer Journal — automatic spaced-repetition review of every question you missed",
       "Tricky Questions — a curated set of high-difficulty items that trip most people up",
       "Saved Questions — bookmark anything you want to revisit",
@@ -47,7 +47,7 @@ const groups = [
       Built for the test, not for engagement metrics
     </h1>
     <p class="mt-4 text-lg text-slate-600 leading-relaxed">
-      Every feature in {product.name} exists to help you pass the DMV permit test the first time.
+      Every feature in {product.name} exists to help you study clearly before the DMV permit test.
       No streaks designed to keep you scrolling, no XP loops, no fake difficulty curves.
     </p>
   </section>
@@ -94,13 +94,7 @@ const groups = [
     <p class="text-sm font-semibold text-indigo-700 uppercase tracking-wide">Languages &amp; states</p>
     <h2 class="mt-2 text-2xl font-semibold text-slate-900">Where {product.name} works at launch</h2>
     <p class="mt-4 text-slate-600 leading-relaxed">
-      Launching with{" "}
-      {product.states.map((s, i) => (
-        <span>
-          <strong class="text-slate-900">{s.name}</strong>
-          {i < product.states.length - 1 ? ", " : ""}
-        </span>
-      ))}.
+      Supports <strong class="text-slate-900">{product.coverageLabel}</strong>.
     </p>
     <p class="mt-3 text-slate-600 leading-relaxed">
       Available in {product.languages.join(", ")}. Each state's exam-language coverage matches what
