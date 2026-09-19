@@ -6,11 +6,14 @@ import { product } from "../data/product";
 
 interface Props {
   title: string;
+  /** Full <title> override — used as-is, without the " — Permitly" suffix. */
+  fullTitle?: string;
   description?: string;
 }
 
-const { title, description = product.description } = Astro.props;
-const pageTitle = title === product.name ? product.name : `${title} — ${product.name}`;
+const { title, fullTitle, description = product.description } = Astro.props;
+const pageTitle =
+  fullTitle ?? (title === product.name ? product.name : `${title} — ${product.name}`);
 const canonical = new URL(Astro.url.pathname, product.url).toString();
 ---
 
@@ -23,6 +26,8 @@ const canonical = new URL(Astro.url.pathname, product.url).toString();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
     <meta name="description" content={description} />
+    <meta name="apple-itunes-app" content={`app-id=${product.stores.appStoreId}`} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

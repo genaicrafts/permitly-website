@@ -1,0 +1,31 @@
+---
+import { product } from "../data/product";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<!-- Official badge artwork from Apple / Google, unmodified. Keep both at equal height. -->
+<div class:list={["flex flex-wrap items-center gap-4", className]}>
+  <a href={product.stores.appStoreUrl} rel="noopener" class="inline-block p-1">
+    <img
+      src="/badges/app-store-badge-en.svg"
+      alt="Download on the App Store"
+      width="144"
+      height="48"
+      class="h-12 w-auto"
+    />
+  </a>
+  <a href={product.stores.googlePlayUrl} rel="noopener" class="inline-block p-1">
+    <img
+      src="/badges/google-play-badge-en.svg"
+      alt="Get it on Google Play"
+      width="162"
+      height="48"
+      class="h-12 w-auto"
+    />
+  </a>
+</div>

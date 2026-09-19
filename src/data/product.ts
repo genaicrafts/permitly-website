@@ -4,14 +4,23 @@ export const product = {
   domain: "dmvpermitly.com",
   url: "https://dmvpermitly.com",
 
-  status: "Launching 2026",
+  status: "Available on iOS and Android",
   launchYear: 2026,
+
+  seoTitle: "Permitly — DMV Permit Test Prep in 10 Languages, All 50 States",
+
+  stores: {
+    appStoreId: "6768799803",
+    appStoreUrl: "https://apps.apple.com/app/id6768799803",
+    androidPackage: "com.genaicrafts.permitly",
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.genaicrafts.permitly",
+  },
 
   tagline: "Study for your DMV permit test in your language.",
   description:
-    "Permitly helps you prep for the DMV written permit test with real exam-style questions, smart review that focuses on your weak spots, and full offline support — in 10 languages across all 50 states plus Washington DC.",
+    "Permitly helps you prep for the DMV written permit test with exam-style practice questions, smart review that focuses on your weak spots, and full offline support — in 10 languages across all 50 states plus Washington DC.",
   shortBlurb:
-    "DMV permit prep with real exam-style questions, smart review, and 10-language support. Built mobile-first for iOS and Android.",
+    "DMV permit prep with exam-style practice questions, smart review, and 10-language support. Available for iOS and Android.",
   coverageLabel: "all 50 states + Washington DC",
 
   emails: {

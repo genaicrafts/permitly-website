@@ -1,15 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import appRoadmap from "../assets/app-roadmap-en.png";
+import StoreBadges from "../components/StoreBadges.astro";
 import { product } from "../data/product";
 
 const highlights = [
   {
-    title: "Real DMV question style",
-    body: "Practice with questions modeled on official state exam formats — not generic flashcards.",
+    title: "Exam-style practice",
+    body: "Multiple-choice practice questions organized around driver-handbook topics — not generic flashcards.",
   },
   {
     title: "Ten languages",
-    body: `Study in ${product.languages.join(", ")}. Many states let you take the written test in more than English.`,
+    body: `Study in ${product.languages.join(", ")}. Exam language options vary by state — check with your state's DMV.`,
   },
   {
     title: "Works offline",
@@ -18,10 +21,10 @@ const highlights = [
 ];
 ---
 
-<BaseLayout title={product.name} description={product.description}>
+<BaseLayout title={product.name} fullTitle={product.seoTitle} description={product.description}>
   <section class="mx-auto max-w-5xl px-6 pt-16 pb-12 md:pt-24 md:pb-16">
     <span
-      class="inline-flex items-center rounded-full bg-amber-100 text-amber-800 px-3 py-1 text-xs font-medium"
+      class="inline-flex items-center rounded-full bg-emerald-100 text-emerald-800 px-3 py-1 text-xs font-medium"
     >
       {product.status}
     </span>
@@ -31,12 +34,8 @@ const highlights = [
     <p class="mt-6 max-w-2xl text-lg text-slate-600 leading-relaxed">
       {product.description}
     </p>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a
-        href={`mailto:${product.emails.hello}?subject=Notify%20me%20when%20Permitly%20launches`}
-        class="inline-flex items-center rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-500 transition-colors"
-        >Notify me at launch →</a
-      >
+    <StoreBadges class="mt-8" />
+    <div class="mt-6 flex flex-wrap gap-3">
       <a
         href="/features"
         class="inline-flex items-center rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
@@ -76,11 +75,13 @@ const highlights = [
             Permitly is independent and is not affiliated with any state DMV.
           </p>
         </div>
-        <div
-          class="aspect-[9/19] max-h-[420px] mx-auto w-full max-w-[210px] rounded-3xl border-2 border-slate-200 bg-white/70 flex items-center justify-center text-center text-slate-400 text-xs px-4"
-        >
-          App preview<br />coming soon
-        </div>
+        <Image
+          src={appRoadmap}
+          alt={`${product.name} app showing the lesson roadmap screen`}
+          widths={[210, 420, 630]}
+          sizes="210px"
+          class="mx-auto w-full max-w-[210px] h-auto rounded-3xl border-2 border-slate-200 shadow-sm"
+        />
       </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import StoreBadges from "../components/StoreBadges.astro";
 import { product } from "../data/product";
 
 const groups = [
@@ -16,7 +17,7 @@ const groups = [
   },
   {
     eyebrow: "Practice",
-    heading: "Drill the way you'll actually be tested",
+    heading: "Practice in an exam-style format",
     items: [
       "Full mock exams, road sign quizzes, module tests, and topic-based practice",
       "Wrong Answer Journal — automatic spaced-repetition review of every question you missed",
@@ -32,7 +33,7 @@ const groups = [
       "Overall accuracy and first-attempt accuracy",
       "Mock exam pass rate and weekly improvement trend",
       "Estimated score vs. your state's passing threshold",
-      "Honest pass-chance percentage — so you don't book the appointment too early",
+      "Readiness estimate based on your practice results — an estimate only, not a prediction or guarantee of your exam result",
     ],
   },
 ];
@@ -92,7 +93,7 @@ const groups = [
 
   <section class="mx-auto max-w-3xl px-6 py-10 border-t border-slate-200">
     <p class="text-sm font-semibold text-indigo-700 uppercase tracking-wide">Languages &amp; states</p>
-    <h2 class="mt-2 text-2xl font-semibold text-slate-900">Where {product.name} works at launch</h2>
+    <h2 class="mt-2 text-2xl font-semibold text-slate-900">Where {product.name} works</h2>
     <p class="mt-4 text-slate-600 leading-relaxed">
       Supports <strong class="text-slate-900">{product.coverageLabel}</strong>.
     </p>
@@ -104,11 +105,7 @@ const groups = [
   </section>
 
   <section class="mx-auto max-w-3xl px-6 py-12 text-center border-t border-slate-200">
-    <p class="text-slate-600">Want to be first to try it?</p>
-    <a
-      href={`mailto:${product.emails.hello}?subject=Notify%20me%20when%20Permitly%20launches`}
-      class="mt-4 inline-flex items-center rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-500 transition-colors"
-      >Notify me at launch →</a
-    >
+    <p class="text-slate-600">Get {product.name} on your phone.</p>
+    <StoreBadges class="mt-4 justify-center" />
   </section>
 </BaseLayout>
